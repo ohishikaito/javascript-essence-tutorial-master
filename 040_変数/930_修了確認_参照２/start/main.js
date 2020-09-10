@@ -6,15 +6,15 @@
  * わっていませんでした。
  * 以下のminus関数をどのように修正すればobj.prop1
  * の値を変更することができるでしょうか？
- * 
+ *
  */
 let obj = {
-    prop1: 10
-}
+  prop1: 10,
+};
 
 function minus(obj, val) {
-    let prop1 = obj.prop1;
-    prop1 = prop1 - val;
+  // let prop1 = obj.prop1;
+  obj.prop1 -= val;
 }
 
 minus(obj, 1);
@@ -25,19 +25,17 @@ console.log(obj.prop1);
  * と思っていました。しかし、コンソールに表示された
  * のは元の値である'10'でした。
  * どうすれば、'20'が表示されるようになるでしょうか？
- * 
+ *
  * '20'が表示されるように、double関数内を修正してください。
  */
-
-
+obj.prop1 = 10;
 function double(obj) {
-    let { prop1 } = obj;
-    prop1 = prop1 * 2;
+  let { prop1 } = obj;
+  obj.prop1 = prop1 * 2;
 }
 
 double(obj);
 console.log(obj.prop1);
-
 
 /**
  * 問題３：
@@ -47,26 +45,33 @@ console.log(obj.prop1);
  * 考えてみてください。
  */
 obj.prop2 = {
-    prop3: 1
-}
+  prop3: 1,
+};
 
 function fn({ prop2 }) {
-    let prop = prop2;
-    prop.prop3 = 2;
-    prop = { prop3: 3 };
-    return { prop2: prop };
+  prop2 = 100;
+  let prop = prop2;
+  console.log(prop);
+  prop.prop3 = 2;
+  //   console.log((prop.prop3 = 2));
+  console.log(prop + "   prop3 = 2");
+  prop = { prop3: 3 };
+  console.log(prop);
+  return { prop2: prop };
 }
 obj = fn(obj);
-// console.log(obj.prop2.prop3);
+console.log(obj.prop2);
+console.log(obj.prop2.prop3);
+// prop2にprop3: 3を再代入してreturnしたから
 
 /**
  * 問題４：
  * through関数を経由して格納されるobj2は
  * objと等価でしょうか？
  */
-function through (obj) {
-    return obj;
+function through(obj) {
+  return obj;
 }
 
 const obj2 = through(obj);
-// console.log(obj === obj2);
+console.log(obj === obj2);
