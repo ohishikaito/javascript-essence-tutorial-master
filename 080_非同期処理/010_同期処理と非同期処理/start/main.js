@@ -1,10 +1,15 @@
 function sleep(ms) {
   const startTime = new Date();
+  // console.log(startTime);
   while (new Date() - startTime < ms);
-  console.log('sleep done');
+  console.log("sleep done");
 }
 
-const btn = document.querySelector('button');
-btn.addEventListener('click', function(){
-  console.log('button clicked');
+const btn = document.querySelector("button");
+btn.addEventListener("click", function () {
+  console.log("button clicked");
 });
+
+setTimeout(function () {
+  sleep(3000);
+}, 2000);

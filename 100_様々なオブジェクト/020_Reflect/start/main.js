@@ -5,8 +5,7 @@ class C {
   }
 }
 
-
-// const bob = {
+// con　st bob = {
 //   name: 'Bob',
 //   _hello: function () {
 //     console.log(`hello ${this.name}`);

@@ -3,9 +3,12 @@ function Person(name, age) {
   this.age = age;
 }
 
-Person.prototype.hello = function() {
-  console.log('hello ' + this.name);
-}
+Person.prototype.hello = function () {
+  console.log("hello " + this.name);
+};
 
-const bob = new Person('Bob', 18);
+const bob = new Person("Bob", 18);
 bob.hello();
+
+const result = bob.hasOwnProperty("name");
+console.log(result);
